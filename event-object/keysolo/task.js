@@ -6,7 +6,6 @@ class Game {
     this.lossElement = container.querySelector('.status__loss');
 
     this.reset();
-
     this.registerEvents();
   }
 
@@ -17,6 +16,9 @@ class Game {
   }
 
   registerEvents() {
+    document.addEventListener('keyup', (e) => {
+      this.currentSymbol.textContent === e.key? this.success(): this.fail();
+    });
     /*
       TODO:
       Написать обработчик события, который откликается
@@ -90,5 +92,5 @@ class Game {
   }
 }
 
-new Game(document.getElementById('game'))
+new Game(document.getElementById('game'));
 
